@@ -10,6 +10,8 @@ This is a widget to capture email leads.
 
 Look in `docs` folder
 
+Github Pages: https://jacted.github.io/lead-form/
+
 ## Usage
 
 ```

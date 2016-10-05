@@ -1,0 +1,180 @@
+@mixin transition($type: all, $seconds: 0.5s, $ease: ease) {
+  -webkit-transition: $type $seconds $ease;
+  -moz-transition: $type $seconds $ease;
+  -o-transition: $type $seconds $ease;
+  -ms-transition: $type $seconds $ease;
+  transition: $type $seconds $ease;
+}
+
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model;
+     -moz-box-sizing: $box-model;
+          box-sizing: $box-model;
+}
+
+#leadform-wrapper {
+  
+  font-family: Arial,sans-serif;
+
+  &.open {
+    .leadform-opennote {
+      bottom: -76px;
+    }
+    .leadform-note {
+      bottom: 0;
+    }
+  }
+
+  &.left {
+    .leadform-opennote {
+      left: 10px;
+      right: auto;
+    }
+    .leadform-note {
+      left: 0px;
+      right: auto;
+      &-inner {
+        left: 10px;
+      }
+      &-close {
+        right: -17px;
+        left: auto;
+      }
+    }
+  }
+
+  .leadform-opennote {
+    padding: 0px 40px 0px 20px;
+    border-radius: 2px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 2px;
+    position: absolute;
+    z-index: 99999;
+    cursor: pointer;
+    box-sizing: content-box;
+    right: 10px;
+    bottom: 10px;
+    display: block !important;
+    background-color: rgb(46, 154, 44);
+    color: rgb(255, 255, 255);
+    @include transition(all, 0.5s, ease);
+
+    &-title {
+      line-height: 40px;
+      font-size: 13px;
+    }
+
+    &-arrow {
+      z-index: 1;
+      position: absolute;
+      bottom: 18px;
+      right: 17px;
+      img {
+        display: block;
+      }
+    }
+  }
+
+  .leadform-note {
+    position: fixed;
+    display: block;
+    bottom: -405px;
+    right: 0px;
+    left: auto;
+    max-width: 100%;
+    border: none;
+    z-index: 99999;
+
+    @include transition(all, 0.5s, ease);
+
+    &-inner {
+      width: 350px;
+      border-radius: 2px;
+      border: medium none;
+      line-height: 20px;
+      box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 2px;
+      position: absolute;
+      z-index: 10;
+      padding: 30px;
+      left: auto;
+      top: auto;
+      right: 10px;
+      bottom: 10px;
+      visibility: visible;
+      display: block !important;
+      opacity: 1;
+      background-color: rgb(255, 255, 255);
+
+      @include box-sizing(border-box);
+    }
+
+    &-close {
+      right: auto;
+      top: -17px;
+      left: -17px;
+      bottom: auto;
+      position: absolute;
+      z-index: 999;
+      cursor: pointer;
+      width: 33px;
+      height: 33px;
+    }
+
+    &-title {
+      position: relative;
+      z-index: 10;
+      margin-bottom: 15px;
+      font-family: Arial,sans-serif;
+      font-size: 26px;
+      line-height: normal;
+      text-align: center;
+    }
+
+    p {
+      margin-bottom: 15px;
+      text-align: center;
+      font-size: 13px;
+      line-height: 20px;
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+
+    form {
+      input {
+        padding: 10px;
+        border-radius: 2px;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(174, 174, 174);
+        color: rgb(162, 162, 162);
+        font-size: 13px;
+        font-family: Arial,sans-serif;
+        font-weight: normal;
+        line-height: 15px;
+        height: 40px;
+        max-width: 100%;
+        width: 100%;
+        outline: none;
+        @include box-sizing(border-box);
+
+        &[type=submit] {
+          height: 40px;
+          border-radius: 2px;
+          background-color: #2e9a2c;
+          border-color: transparent;
+          text-align: center;
+          font-size: 13px;
+          color: #fff;
+          width: 100%;
+          cursor: pointer;
+        }
+      }
+      .leadform-note-form-group {
+        margin-bottom: 10px;
+        &:last-child {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+}

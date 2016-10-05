@@ -8,7 +8,7 @@ This is a widget to capture email leads.
 
 ## Examples
 
-Look in `example` folder
+Look in `docs` folder
 
 ## Usage
 
@@ -20,7 +20,7 @@ data-widget-id="widget-id"
 ## Getting started
 
 1. Copy script from `dist`
-2. Follow example in `example` folder
+2. Follow example in `docs` folder
 
 ## Todo
 

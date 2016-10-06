@@ -4,7 +4,8 @@ import React from 'react';
 // Capture component
 export default class Capture extends React.Component {
 
-  componentWillMount() {
+  constructor(props) {
+    super(props);
     this.state = {
       form: {
         email: ''
@@ -15,6 +16,14 @@ export default class Capture extends React.Component {
   onFormSubmit(e) {
     e.preventDefault()
     this.props.onFormSubmit(this.state.form)
+  }
+
+  handleChange(event) {
+    let form = this.state.form
+    form.email = event.target.value
+    this.setState({
+      form: form
+    });
   }
 
   render () {
@@ -28,7 +37,7 @@ export default class Capture extends React.Component {
 
         <form onSubmit={this.onFormSubmit.bind(this)}>
           <div className="leadform-note-form-group">
-            <input type="email" placeholder="Email" required />
+            <input type="email" placeholder="Email" required onChange={this.handleChange.bind(this)} />
           </div>
           <div className="leadform-note-form-group">
             <input type="submit" value={this.props.form.buttonText} />

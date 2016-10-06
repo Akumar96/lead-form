@@ -21,7 +21,9 @@ require('./styles.scss');
 // App
 class App extends React.Component {
 
-  componentWillMount() {
+  constructor(props) {
+    super(props);
+    
     this.state = {
       api_url: 'https://jsonplaceholder.typicode.com/posts',
       open: false,
@@ -34,7 +36,7 @@ class App extends React.Component {
       info: {
         bartitle: 'Sign up to our newsletter',
         title: 'Sign up to our newsletter',
-        content: ''
+        content: '' 
       },
       thanks: {
         title: 'Thanks for signing up',
@@ -44,6 +46,9 @@ class App extends React.Component {
         buttonText: 'Sign up'
       }
     }
+  }
+
+  componentDidMount() {
     this.setDefaults()
     this.checkIfShouldPopup()
   }
